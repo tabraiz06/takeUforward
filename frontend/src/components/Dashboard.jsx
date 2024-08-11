@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios, { isCancel, AxiosError } from "axios";
 
 const Dashboard = (props) => {
-  const { banner } = props;
+  const { banner, fetchBanner } = props;
 
   const [data, setData] = useState({
-    description: banner.description || "",
-    timer: banner.timer || "",
-    link: banner.link || "",
-    isVisible: banner.isVisible || false,
+    description: "",
+    timer: "",
+    link: "",
+    isVisible: false,
   });
 
   useEffect(() => {
