@@ -8,7 +8,9 @@ const App = () => {
   const [timeLeft, setTimeLeft] = useState(0);
 
   const fetchBanner = async () => {
-    const response = await axios.get("http://localhost:5000/api/banner");
+    const response = await axios.get(
+      "https://takeuforward-igf3.onrender.com/api/banner"
+    );
     setBanner(response.data);
     setTimeLeft(response.data.timer);
   };

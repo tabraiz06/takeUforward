@@ -11,10 +11,13 @@ const Dashboard = (props) => {
   };
   const [banners, setBanners] = useState(initials);
   const updateBanner = async () => {
-    await axios.put("http://localhost:5000/api/banner", banners);
+    await axios.put(
+      "https://takeuforward-igf3.onrender.com/api/banner",
+      banners
+    );
     fetchBanner();
   };
- 
+
   return (
     <div className="dashboard">
       <label>
