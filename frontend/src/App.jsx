@@ -14,7 +14,7 @@ const App = () => {
     setBanner(response.data);
     setTimeLeft(response.data.timer);
   };
-  // console.log(banner)
+ 
 
   useEffect(() => {
     fetchBanner();
