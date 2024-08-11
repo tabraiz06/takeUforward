@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const Banner = require("./models/bannerModel");
+const Router = require("./routes/api");
 
 const app = express();
 app.use(cors());
@@ -8,16 +10,6 @@ app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost:27017/BannerDB");
-
-// Define Banner schema and model
-const bannerSchema = new mongoose.Schema({
-  description: String,
-  timer: Number,
-  link: String,
-  isVisible: Boolean,
-});
-
-const Banner = mongoose.model("Banner", bannerSchema);
 
 async function seedBannerData() {
   const existingBanner = await Banner.findOne();
@@ -56,20 +48,7 @@ async function seedBannerData() {
   }
 }
 seedBannerData();
-// API Routes
-app.get("/api/banner", async (req, res) => {
-  const banner = await Banner.findOne(); // Assuming a single document for simplicity
-  res.json(banner);
-});
 
-app.put("/api/banner", async (req, res) => {
-  const { description, timer, link, isVisible } = req.body;
-  await Banner.updateOne(
-    {},
-    { description, timer, link, isVisible },
-    { upsert: true }
-  );
-  res.sendStatus(200);
-});
+app.use(Router);
 
 app.listen(5000, () => console.log("Server running on port 5000"));
