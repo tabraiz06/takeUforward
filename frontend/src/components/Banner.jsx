@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Banner = ({ timeLeft, banner }) => {
   if (!banner.isVisible || timeLeft <= 0) return null;
