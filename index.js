@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/BannerDB");
+mongoose.connect(
+  "mongodb+srv://tabraiz:tabraiz@cluster0.76smate.mongodb.net/bannerDB?retryWrites=true&w=majority"
+);
 
 async function seedBannerData() {
   const existingBanner = await Banner.findOne();
