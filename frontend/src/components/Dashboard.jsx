@@ -24,7 +24,7 @@ const Dashboard = (props) => {
         Banner Description:
         <input
           type="text"
-          value={initials.description}
+          value={banners.description}
           onChange={(e) =>
             setBanners({ ...banners, description: e.target.value })
           }
@@ -34,7 +34,7 @@ const Dashboard = (props) => {
         Timer (in seconds):
         <input
           type="number"
-          value={initials.timer}
+          value={banners.timer}
           onChange={(e) => setBanners({ ...banners, timer: e.target.value })}
         />
       </label>
@@ -42,7 +42,7 @@ const Dashboard = (props) => {
         Banner Link:
         <input
           type="text"
-          value={initials.link}
+          value={banners.link}
           onChange={(e) => setBanners({ ...banners, link: e.target.value })}
         />
       </label>
@@ -50,7 +50,7 @@ const Dashboard = (props) => {
         Banner Visible:
         <input
           type="checkbox"
-          checked={initials.isVisible}
+          checked={banners.isVisible}
           onChange={(e) =>
             setBanners({ ...banners, isVisible: e.target.checked })
           }
